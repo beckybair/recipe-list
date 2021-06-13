@@ -1,6 +1,6 @@
 <template>
-  <div class="border-start mt-4 ps-md-3">
-    <h3 class="text-md-start">Directions</h3>
+  <div>
+    <p class="h4 text-lg-start">Directions</p>
     <div class="text-start pt-3">
       <p
         v-for="(direction, index) in directions"
@@ -8,12 +8,9 @@
         class="mb-0"
       >
         {{ direction.instructions }}
-        <span
-         v-if="direction.optional"
-         class="fst-italic"
-        >
+        <em v-if="direction.optional">
           (this is optional)
-        </span>
+        </em>
       </p>
     </div>
   </div>

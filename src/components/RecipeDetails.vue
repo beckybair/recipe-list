@@ -1,59 +1,56 @@
 <template>
   <div>
-    <div class="d-flex">
+    <div class="d-lg-flex">
       <!-- Image -->
       <div
-       id="images"
-       class="col-md-6 me-md-3"
-       >
+        id="images"
+        class="col-lg-6 me-lg-3"
+      >
         <!-- TODO: style -->
         <img
           :src="recipe.images.full"
-          alt=""
+          :alt="recipe.title"
           class="img-fluid d-none d-lg-block rounded mx-auto"
-          aria-labelledby="recipeTitle"
         >
         <img
           :src="recipe.images.medium"
-          alt=""
+          :alt="recipe.title"
           class="img-fluid d-none d-sm-block d-lg-none rounded mx-auto"
-          aria-labelledby="recipeTitle"
         >
         <img
           :src="recipe.images.small"
-          alt=""
+          :alt="recipe.title"
           class="img-fluid d-block d-sm-none rounded mx-auto"
-          aria-labelledby="recipeTitle"
         >
       </div>
       <!-- Title, Desctription, etc -->
-      <div class="col-md-6 mt-3">
-        <h2 id="recipeTitle">{{ recipe.title }}</h2>
-        <p class="fs-6 mb-0">
-          <span class="fw-bold fst-italic">Posted on:</span> {{ recipe.postDate }}
+      <div class="col-lg-6 mt-3">
+        <p class="h3">{{ recipe.title }}</p>
+        <p class="fs-6 mb-0 small">
+          <em class="fw-bold">Posted on:</em> {{ recipe.postDate }}
         </p>
         <p
           v-if="recipe.editDate"
-          class="fs-6"
+          class="fs-6 small"
         >
-          <span class="fw-bold fst-italic">Edited on:</span> {{ recipe.editDate }}
+          <em class="fw-bold">Edited on:</em> {{ recipe.editDate }}
         </p>
         <p class="py-4">{{ recipe.description }}</p>
         <p class="fs-6 mb-0">
-          <span class="fw-bold">Servings:</span> {{ recipe.servings }}
+          <em class="fw-bold">Servings:</em> {{ recipe.servings }}
         </p>
         <p>
-          <span class="fw-bold">Prep Time:</span> {{ recipe.prepTime }}m
-          <i class="fas fa-minus"></i>
-          <span class="fw-bold"> Cook Time:</span> {{ recipe.cookTime }}m
+          <em class="fw-bold">Prep Time:</em> {{ recipe.prepTime }}m
+          <i class="fas fa-minus" aria-hidden="true"></i>
+          <em class="fw-bold"> Cook Time:</em> {{ recipe.cookTime }}m
         </p>
       </div>
     </div>
 
-    <div class="d-flex">
+    <div class="d-lg-flex">
       <!-- Ingredients -->
-      <div class="col-md-4 mt-4 me-md-3">
-        <h3>Ingredients</h3>
+      <div class="bt col-lg-4 mt-4 pt-3 me-lg-3">
+        <p class="h4">Ingredients</p>
         <div class="text-start pt-3">
           <recipe-ingredient
             v-for="(ingredient, index) in recipe.ingredients"
@@ -68,7 +65,7 @@
       <recipe-directions
         v-if="recipe.directions"
         :directions="recipe.directions"
-        class="col-md-8"
+        class="bt b-lg-s col-lg-8 mt-4 pt-3 ps-lg-3"
       ></recipe-directions>
     </div>
   </div>
@@ -91,5 +88,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@media (max-width: 991.98px) {
+  .bt {
+    border-top: 1px solid #dee2e6;
+  }
+}
+@media (min-width: 992px) {
+  .b-lg-s {
+    border-left: 1px solid #dee2e6;
+  }
+}
 </style>

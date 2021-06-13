@@ -6,8 +6,8 @@
     <button
      v-for="(recipe, index) in recipes"
      :key="index"
-     class="list-group-item list-group-item-action"
-     :class="{ 'active list-group-item-primary': index === activeRecipe }"
+     class="list-group-item list-group-item-action flex-fill"
+     :class="{ 'active': index === activeRecipe }"
      type="button"
      :aria-current="index === activeRecipe"
      @click.prevent="showDetails(index)"
